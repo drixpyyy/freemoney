@@ -36,17 +36,39 @@
         button:hover {
             background-color: #45a049;
         }
+        .confirmation {
+            display: none;
+            margin-top: 15px;
+            color: green;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>FREE MONEY FORM</h1>
-        <form action="send_email.php" method="POST">
+        <form id="moneyForm" action="send_email.php" method="POST">
             <input type="text" name="message" placeholder="Your Message" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <input type="text" name="paypal" placeholder="Your PayPal Account" required>
             <button type="submit">Submit</button>
         </form>
+        <div class="confirmation" id="confirmationMessage">
+            Your request has been received. It will be processed in 2-3 business days.
+        </div>
     </div>
+
+    <script>
+        const form = document.getElementById('moneyForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+
+        if (localStorage.getItem('submitted')) {
+            form.style.display = 'none';
+            confirmationMessage.style.display = 'block';
+        }
+
+        form.addEventListener('submit', function () {
+            localStorage.setItem('submitted', 'true');
+        });
+    </script>
 </body>
 </html>
