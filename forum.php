@@ -4,11 +4,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST['email']);
     $paypal = htmlspecialchars($_POST['paypal']);
 
-    $to = "0dxp.inc@gmail.com";
+    $to = "0dxp.inc@gmail.com";  // Your email
     $subject = "New Submission from FREE MONEY FORM";
     $body = "Message: $message\nEmail: $email\nPayPal: $paypal";
 
-    $headers = "From: 0dxp.inc@gmail.com\r\n";
+    $headers = "From: no-reply@yourdomain.com\r\n";
     $headers .= "Reply-To: $email\r\n";
 
     if (mail($to, $subject, $body, $headers)) {
