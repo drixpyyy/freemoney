@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FREE MONEY FORM</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            display: flex; 
+            height: 100vh; 
+            justify-content: center; 
+            align-items: center; 
+            background-color: #f0f2f5; 
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FREE MONEY FORM</h1>
+        <form action="send_email.php" method="POST">
+            <input type="text" name="message" placeholder="Your Message" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="paypal" placeholder="Your PayPal Account" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
