@@ -5,9 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FREEMONEY</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Full-screen container for the "2-3 business days" message */
+        .full-screen-message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        .form-container {
+            text-align: center;
+        }
+
+        form {
+            display: block;
+            margin: 0 auto;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
-    <div class="form-container">
+    <div id="message" class="full-screen-message" style="display:none;">
+        2-3 Business Days
+    </div>
+
+    <div id="formContainer" class="form-container">
         <h1>FREEMONEY</h1>
         <p>Fill out the form below to receive a small donation. You can only submit once. It will take 2-3 business days.</p>
         <form id="paymentForm" action="https://formspree.io/f/mzzebgbp" method="POST">
@@ -23,13 +58,15 @@
     </div>
 
     <script>
-        // Check if the user has already submitted the form
+        // Check if the email has already been submitted
         if (localStorage.getItem('formSubmitted') === 'true') {
-            document.getElementById('paymentForm').style.display = 'none';
-            document.getElementById('responseMessage').textContent = 'You have already submitted the form.';
+            // Hide the form and show the message
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('message').style.display = 'flex';
         }
 
         document.getElementById('paymentForm').addEventListener('submit', function() {
+            // Save submission state to localStorage
             localStorage.setItem('formSubmitted', 'true');
         });
     </script>
